@@ -4,12 +4,13 @@ import MainContent from './components/MainContent';
 import "./App.css"
 
 const App = () => {
+    // eslint-disable-next-line no-unused-vars
     const [boards, setBoards] = useState([
         { name: 'Platform Launch', tasks: {} },
         { name: 'Marketing Plan', tasks: {} },
         { name: 'Roadmap', tasks: {} },
-
     ]);
+    
     const [selectedBoard, setSelectedBoard] = useState(boards[0]);
 
     return (

@@ -36,6 +36,7 @@ const KanbanBoard = () => {
     
         if (oldStatus && newStatus && card) {
             const cardIndex = board.columns[oldStatus].findIndex(task => task.id === card.id);
+            console.log(cardIndex);
             moveTask(activeBoardIndex, oldStatus, newStatus, card, board.columns[newStatus].length);
         }
     };    

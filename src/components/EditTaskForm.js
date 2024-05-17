@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import useStore from '../useStore';
 import styles from './EditTaskForm.module.css';
 
@@ -9,8 +9,9 @@ const EditTaskForm = ({ task, column, onClose, onSave }) => {
     const boards = useStore(state => state.boards);
     const updateBoard = useStore(state => state.updateBoard);
 
-    const [taskTitle, setTaskTitle] = useState(task.title);
-    const [description, setDescription] = useState(task.description);
+    // Removed unused setTaskTitle
+    // const [taskTitle, setTaskTitle] = useState(task.title);
+    // const [description, setDescription] = useState(task.description);
     const [status, setStatus] = useState(column);
 
     const [subtasks, setSubtasks] = useState(() => {
@@ -27,25 +28,21 @@ const EditTaskForm = ({ task, column, onClose, onSave }) => {
         }
     });
 
-    const handleSubtaskChange = (index, value) => {
-        const newSubtasks = subtasks.slice();
-        newSubtasks[index].title = value;
-        setSubtasks(newSubtasks);
-    };
-
     const handleSubtaskToggle = (index) => {
         const newSubtasks = subtasks.slice();
         newSubtasks[index].completed = !newSubtasks[index].completed;
         setSubtasks(newSubtasks);
     };
 
-    const handleSaveTask = () => {
+    const handleSaveTask = useCallback(() => {
         const updatedTask = {
             ...task,
-            title: taskTitle,
-            description,
+            // Removed unused taskTitle
+            // title: taskTitle,
+            // description,
             subtasks,
         };
+
     
         const updatedColumns = { ...boards[activeBoardIndex].columns };
     
@@ -60,10 +57,7 @@ const EditTaskForm = ({ task, column, onClose, onSave }) => {
     
         updateBoard(activeBoardIndex, { columns: updatedColumns });
         onClose();
-    };
-    
-    
-    
+    }, [task, column, status, subtasks, boards, activeBoardIndex, updateBoard, onClose]);
 
     useEffect(() => {
         if (onSave) {
@@ -76,8 +70,8 @@ const EditTaskForm = ({ task, column, onClose, onSave }) => {
 
     return (
         <div className={styles.form}>
-            <label className={styles.taskTitle}>{taskTitle}</label>
-            <label>{description}</label>
+            <label className={styles.taskTitle}>{task.title}</label>
+            <label>{task.description}</label>
 
             <label className={styles.subtasksLabel}>Subtasks ({completedSubtasksCount} of {totalSubtasksCount})</label>
             <ul className={styles.subtasksList}>
