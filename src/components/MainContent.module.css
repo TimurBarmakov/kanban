@@ -66,13 +66,9 @@
 }
 
 .addTaskButton {
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 25px;
-    cursor: pointer;
-    background-color: var(--color-primary);
+    margin-top: 0 !important;
+    margin-right: 10px !important;
+    padding: 10px 20px !important;
 }
 
 .settingsIconColor svg {

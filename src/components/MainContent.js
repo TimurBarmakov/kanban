@@ -5,6 +5,7 @@ import { ReactComponent as SettingsIcon } from '../assets/images/settingsIcon.sv
 import Modal from './Modal';
 import useStore from '../useStore';
 import styles from './MainContent.module.css';
+import Button from './Button';
 
 const MainContent = () => {
     const [isAddTaskFormOpen, setAddTaskFormOpen] = useState(false);
@@ -30,7 +31,7 @@ const MainContent = () => {
             <div className={`${styles.mainContentHeader} ${isSidebarVisible ? '' : styles.withoutSidebarHeader}`}>
                 <h3>{board.name}</h3>
                 <div className={styles.headerSettings}>
-                    <button className={styles.addTaskButton} onClick={handleAddTask}>+ Add New Task</button>
+                    <Button color='primary' onClick={handleAddTask} className={styles.addTaskButton}>+ Add New Task</Button>
                     <div className={styles.settingsIcon} onClick={toggleSidebar}>
                         <SettingsIcon />
                     </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import useStore from '../useStore';
 import styles from './AddTaskForm.module.css';
+import Button from './Button';
+
 
 const AddTaskForm = ({ onClose }) => {
     const activeBoardIndex = useStore(state => state.activeBoardIndex);
@@ -70,14 +72,14 @@ const AddTaskForm = ({ onClose }) => {
                     <button onClick={() => handleRemoveSubtask(index)} className={styles.removeSubtaskButton}>X</button>
                 </div>
             ))}
-            <button onClick={handleAddSubtask} className={styles.addSubtaskButton}>+ Add New Subtask</button>
+            <Button onClick={handleAddSubtask} color="default">+ Add New Subtask</Button>
             <label>Status</label>
             <select value={status} onChange={(e) => setStatus(e.target.value)}>
                 {columnNames.map(columnName => (
                     <option key={columnName} value={columnName}>{columnName.toUpperCase()}</option>
                 ))}
             </select>
-            <button onClick={handleCreateTask} className={styles.createTaskButton}>Create Task</button>
+            <Button onClick={handleCreateTask} color="primary">Create Task</Button>
         </div>
     );
 };
