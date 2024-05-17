@@ -1,0 +1,80 @@
+.mainContent {
+    position: relative;
+    margin-left: calc(10px + var(--sidebar-width));
+}
+
+.mainContentHeader {
+    position: fixed;
+    top: 0;
+    left: calc(20px + var(--sidebar-width));
+    width: calc(100% - var(--sidebar-width));
+    background-color: var(--color-secondary);
+    display: flex;
+    border: 1px solid var(--color-borderColor);
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.withoutSidebar {
+    margin-left: calc(10px + var(--sidebar-width));
+}
+
+.withoutSidebarHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-secondary);
+    display: flex;
+    border: 1px solid var(--color-borderColor);
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    z-index: 1000;
+    transition: width 0.3s ease;
+}
+
+.withSidebarHeader,
+.withoutSidebarHeader {
+    transition: left 0.3s ease;
+}
+
+
+.headerSettings {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    margin-left: 20px;
+}
+
+.settingsIcon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer {
+    height: 100%;
+    margin-top: 80px; 
+    padding: 20px;
+    overflow: auto; 
+}
+
+.addTaskButton {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: var(--color-primary);
+}
+
+.settingsIconColor svg {
+    fill: var(--color-cardName);
+}

@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+:root {
+  --sidebar-width: 200px;
+}
+
+
+.dark-theme {
+  --color-primary: #8b65d0;
+  --color-secondary: rgb(52, 52, 52);
+  --color-cardName: #c2c2c2;
+  --color-themeToggle: #131313;
+  --color-formName: #ffffff;
+  --color-borderColor: rgb(98, 98, 98); 
+  --color-selectText: #d2d2d2;
+  background-color: #131313;
+  color: #c2c2c2;
+}
+
+.light-theme {
+  --color-primary: #8b65d0;
+  --color-secondary: rgb(240, 240, 240);
+  --color-cardName: #4b4b4b;
+  --color-themeToggle: #cccccc;
+  --color-formName: #5e5e5e;
+  --color-borderColor: rgb(176, 175, 175);
+  --color-selectText: #242424; 
+  background-color: #cccccc;
+  color: #4b4b4b;
+}
+

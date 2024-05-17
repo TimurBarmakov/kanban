@@ -1,0 +1,62 @@
+.tasksList {
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+}
+
+.column {
+    padding: 5px 10px;
+    border-radius: 8px;
+    min-width: 330px;
+    max-width: 330px;
+    position: relative;
+}
+
+.column h4 {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.column h4::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--dot-color); 
+}
+
+.card {
+    background: var(--color-secondary);
+    padding: 15px;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    cursor: grab;
+    font-weight: 400;
+}
+
+.cardTitle {
+    font-weight: 600;
+    color: var(--color-cardName);
+    font-size: 20px;
+}
+
+.newColumnButton {
+    padding: 10px 20px;
+    background-color: var(--color-secondary);
+    color: var(--color-cardName);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 26px;
+    min-width: 250px; 
+    margin-left: auto;
+    margin-top: 68px; 
+    font-weight: bold;
+}

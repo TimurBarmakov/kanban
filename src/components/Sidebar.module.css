@@ -1,0 +1,197 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: 20px 10px;
+    padding-left: 0;
+    padding-right: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-right: 1px solid var(--color-borderColor);
+    background-color: var(--color-secondary);
+    overflow-y: hidden;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.container {
+    width: var(--sidebar-width);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.logo {
+    margin-left: 20px;
+    margin-top: 0;
+    font-size: 42px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.boardsList {
+    height: 400px;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 80px;
+    padding-right: 10px;
+}
+
+.boardsList::-webkit-scrollbar {
+    width: 20px;
+}
+
+.boardsList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.boardsList::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px; 
+    border: 2px solid transparent; 
+    background-clip: content-box;
+}
+
+.boardsList {
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent; 
+}
+
+.boardsListItem {
+    display: flex;
+    padding: 10px;
+    padding-left: 0;
+    position: relative;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.boardsListItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 25px;
+    left: -9999px;
+    right: 0;
+    background-color: transparent;
+    z-index: -1;
+}
+
+.activeBoard::before {
+    background-color: var(--color-primary);
+}
+
+.activeBoard {
+    color: #fff;
+}
+
+.boardsCount {
+    margin-left: 10px;
+}
+
+.addBoardButton, .themeToggle, .hideBar {
+    display: flex;
+    align-items: center;
+}
+
+.addBoardButton {
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+.splitImage, .hideBarImage, .themeImage {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.themeToggle {
+    background-color: var(--color-themeToggle);
+    border-radius: 10px;
+    padding: 10px 25px;
+    margin-left: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-cardName);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--color-primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.light-theme {
+    background-color: #e3e3e3;
+    color: #848383;
+}
+
+.dark-theme {
+    background-color: #575757;
+    color: #dadada;
+}
+
+.themeIcon {
+    fill: currentColor;
+}
+
+.splitIcon {
+    fill: currentColor;
+}
+
+.hideIcon {
+    fill: currentColor;
+}
+
+.addBoardButton .splitImage svg {
+    fill: var(--color-primary); 
+}
